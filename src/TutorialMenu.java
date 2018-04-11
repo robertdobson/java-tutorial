@@ -1,3 +1,10 @@
+/**
+ *  Generates a GUI that serves as a menu driver.
+ *
+ *  @author   Robert Dobson
+ *  @version 1.0
+ */
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -83,14 +90,15 @@ public class TutorialMenu extends JPanel implements ActionListener{
         radioPanel.add(recursionButton);
         radioPanel.add(genericsButton);
 
+        //Create the 'Explore' button.
         JButton exploreButton = new JButton();
         exploreButton.setText(buttonString);
-
         exploreButton.setCursor(Cursor.getDefaultCursor());
         exploreButton.setMargin(new Insets(10,0,10,0));
         exploreButton.setActionCommand(buttonString);
         exploreButton.addActionListener(this);
 
+        //Add all the components to the content pane.
         add(textLabel, BorderLayout.NORTH);
         add(radioPanel, BorderLayout.LINE_START);
         add(picture, BorderLayout.CENTER);

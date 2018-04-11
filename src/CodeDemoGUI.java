@@ -1,3 +1,10 @@
+/**
+ *  Generates a GUI that serves as a code demonstration interface.
+ *
+ *  @author   Robert Dobson
+ *  @version 1.0
+ */
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;

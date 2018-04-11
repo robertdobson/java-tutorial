@@ -1,3 +1,10 @@
+/**
+ *  Generates a GUI that serves as a document viewer.
+ *
+ *  @author   Robert Dobson
+ *  @version 1.0
+ */
+
 import javax.swing.*;
 import java.awt.*;              //for layout managers and more
 import java.awt.event.*;        //for action events

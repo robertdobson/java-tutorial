@@ -1,3 +1,10 @@
+/**
+ *  Contains the methods demonstrated via CodeDemoGUI.
+ *
+ *  @author   Robert Dobson
+ *  @version 1.0
+ */
+
 import java.io.*;
 import java.util.Random;
 
