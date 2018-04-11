@@ -20,7 +20,7 @@ public class DocumentViewer extends JPanel implements ActionListener {
         editorScrollPane.setMinimumSize(new Dimension(10, 10));
         editorPane.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createTitledBorder(titledBorder),
                 BorderFactory.createEmptyBorder(5,5,5,5)));
-        add(editorPane, BorderLayout.CENTER);
+        add(editorScrollPane, BorderLayout.CENTER);
     }
 
     public void actionPerformed(ActionEvent e) {
