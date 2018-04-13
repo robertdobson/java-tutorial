@@ -2,7 +2,7 @@
  *  Generates a GUI that serves as a document viewer.
  *
  *  @author   Robert Dobson
- *  @version 1.0
+ *  @version  1.0
  */
 
 import javax.swing.*;
@@ -12,10 +12,10 @@ import java.io.IOException;
 
 public class DocumentViewer extends JPanel implements ActionListener {
 
-    static String document;
-    static String titledBorder;
+    private static String document;
+    private static String titledBorder;
 
-    public DocumentViewer() {
+    private DocumentViewer() {
 
         setLayout(new BorderLayout());
 

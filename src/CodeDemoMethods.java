@@ -2,7 +2,7 @@
  *  Contains the methods demonstrated via CodeDemoGUI.
  *
  *  @author   Robert Dobson
- *  @version 1.0
+ *  @version  1.0
  */
 
 import java.io.*;
@@ -54,6 +54,8 @@ public class CodeDemoMethods {
 
     public static void loopDemoMethod(int userEntry) {
 
+        if (userEntry == 0) userEntry = 1;
+
         while(userEntry > 49) {
             userEntry -= 50;
             ++halfDollars;
@@ -73,8 +75,9 @@ public class CodeDemoMethods {
             userEntry -= 5;
             ++nickels;
         }
-        CodeDemoGUI.showResult.setText("Your change is " + halfDollars + " half dollar(s), " + quarters +
-                " quarter(s), " + dimes + " dime(s), " + nickels + " nickel(s), and " + userEntry + " penn(y/ies)!");
+        CodeDemoGUI.showResult.setText("Your change is " + halfDollars + " half dollar(s), " +
+                quarters + " quarter(s), " + dimes + " dime(s), " + nickels + " nickel(s), and " +
+                userEntry  + " penn(y/ies)!");
 
         // Reset global variables
         halfDollars = 0;
@@ -84,6 +87,8 @@ public class CodeDemoMethods {
     }
 
     public static void arrayDemoMethod(int userEntry) {
+
+        if (userEntry == 0) userEntry = 1;
 
         readRandom = userEntry;
 
@@ -146,7 +151,7 @@ public class CodeDemoMethods {
         guessNumber(0, 100, userEntry);
     }
 
-    public static void guessNumber(int lowValue, int highValue, int mysteryNumber) {
+    private static void guessNumber(int lowValue, int highValue, int mysteryNumber) {
 
         int middleValue; // Midpoint between lowValue/highValue
 

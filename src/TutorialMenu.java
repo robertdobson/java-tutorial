@@ -2,7 +2,7 @@
  *  Generates a GUI that serves as a menu driver.
  *
  *  @author   Robert Dobson
- *  @version 1.0
+ *  @version  1.0
  */
 
 import java.awt.*;
@@ -29,7 +29,7 @@ public class TutorialMenu extends JPanel implements ActionListener{
     static JRadioButton recursionButton = new JRadioButton(recursionString);
     static JRadioButton genericsButton = new JRadioButton(genericsString);
 
-    public TutorialMenu() {
+    private TutorialMenu() {
         super(new BorderLayout());
 
         JLabel textLabel = new JLabel("Please select the subject area of interest," +
@@ -144,7 +144,7 @@ public class TutorialMenu extends JPanel implements ActionListener{
         }
 
     /** Returns an ImageIcon, or null if the path was invalid. */
-    protected static ImageIcon createImageIcon(String path) {
+    private static ImageIcon createImageIcon(String path) {
         java.net.URL imgURL = TutorialMenu.class.getResource(path);
         if (imgURL != null) {
             return new ImageIcon(imgURL);

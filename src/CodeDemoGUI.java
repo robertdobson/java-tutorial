@@ -2,7 +2,7 @@
  *  Generates a GUI that serves as a code demonstration interface.
  *
  *  @author   Robert Dobson
- *  @version 1.0
+ *  @version  1.0
  */
 
 import java.awt.*;
@@ -13,18 +13,18 @@ import javax.swing.event.ChangeListener;
 
 public class CodeDemoGUI extends JPanel implements ActionListener, ChangeListener {
 
-    private static String calculate = "Submit";
+    private static String submit = "Submit";
     private static String introMessage;
     private static String demoTitle;
     private int userInput;
     private static int spinnerStart, spinnerMin, spinnerMax, spinnerStep;
 
-    public JLabel introText = new JLabel(introMessage);
-    public SpinnerModel spinnerEntry = new SpinnerNumberModel(spinnerStart, spinnerMin, spinnerMax, spinnerStep);
-    public JSpinner spinner = new JSpinner(spinnerEntry);
-    public JButton processResult = new JButton();
+    private JLabel introText = new JLabel(introMessage);
+    private SpinnerModel spinnerEntry = new SpinnerNumberModel(spinnerStart, spinnerMin, spinnerMax, spinnerStep);
+    private JSpinner spinner = new JSpinner(spinnerEntry);
+    private JButton processResult = new JButton();
     public static JTextArea showResult = new JTextArea(17, 45);
-    public static JPanel codeDemoPanel = new JPanel();
+    private static JPanel codeDemoPanel = new JPanel();
 
     public CodeDemoGUI() {
         super();
@@ -41,10 +41,10 @@ public class CodeDemoGUI extends JPanel implements ActionListener, ChangeListene
         spinner.getEditor().setPreferredSize(new Dimension(30, 20));
         spinner.setAlignmentX(LEFT_ALIGNMENT);
 
-        processResult.setText(calculate);
+        processResult.setText(submit);
         processResult.setCursor(Cursor.getDefaultCursor());
         processResult.setMargin(new Insets(10,20,10,20));
-        processResult.setActionCommand(calculate);
+        processResult.setActionCommand(submit);
 
         showResult.setLineWrap(true);
         showResult.setWrapStyleWord(true);
@@ -61,7 +61,7 @@ public class CodeDemoGUI extends JPanel implements ActionListener, ChangeListene
 
     /** Listens to the button. */
     public void actionPerformed(ActionEvent e) {
-        if (calculate.equals(e.getActionCommand())) {
+        if (submit.equals(e.getActionCommand())) {
             //Call specific demo processing method here
             if (TutorialMenu.branchingButton.isSelected()) {
                 CodeDemoMethods.branchingDemoMethod(userInput);
