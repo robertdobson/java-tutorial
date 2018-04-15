@@ -2,16 +2,73 @@
 <html>
    <head>
       <meta charset="UTF8"/>
-      <title>Arrays</title>
+      <title>Recursion</title>
+      <!--
+         Java Tutorial Recursion documentation page
+         Filename: Recursion.html
+      
+         Author: Robert Dobson   
+         Date: 04/15/2018
+      -->
    </head>
-
+   
    <body>
       <h3>What is recursion?</h3>
       <p>Recursion in computer science is a method where the solution to a problem depends on solutions to smaller instances of the same problem (as opposed to iteration). The approach can be applied to many types of problems, and recursion is one of the central ideas of computer science.</p>
-
       <p>"The power of recursion evidently lies in the possibility of defining an infinite set of objects by a finite statement. In the same manner, an infinite number of computations can be described by a finite recursive program, even if this program contains no explicit repetitions." Wirth, Niklaus (1976). Algorithms + Data Structures = Programs. Prentice-Hall. p. 126.</p>
-
       <p>Most computer programming languages support recursion by allowing a function to call itself within function's code. Some functional programming languages do not define any looping constructs but rely solely on recursion to repeatedly call code. Computability theory proves that these recursive-only languages are Turing complete; they are as computationally powerful as Turing complete imperative languages, meaning they can solve the same kinds of problems as imperative languages even without iterative control structures such as while and for.</p>
+      <p>There are many problems for which recursion is natural and iteration is extremely difficult. This typically arises when considering objects with a complex nested list structure.</p>
+      <br>
+      <h3>When to use iteration, and when to use recursion? There are (at least) these three factors to consider:</h3>
+      <ul>
+         <li>Iterative functions are typically faster than their recursive counterparts. So, if speed is an issue, you would normally use iteration.</li>
+         <li>If the stack limit is too constraining then you will prefer iteration over recursion.</li>
+         <li>Some procedures are very naturally programmed recursively, such as computing a Fibonacci sequence, and all but unmanageable iteratively. Here, then, the choice is clear.</li>
+      </ul>
+      <br>
+      <p>An example of using recursion is demonstrated in the Code Demo GUI using the following code from the recursionDemoMethod and guessNumber method:</p>
+      <br>
+      <!-- HTML generated using hilite.me -->
+      <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+         <pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">static</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">recursionDemoMethod</span><span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span> userEntry<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+
+        <span style="color: #888888">// Reset global variables</span>
+        temp <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;&quot;</span><span style="color: #333333">;</span>
+        numberOfGuesses <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">;</span>
+
+        <span style="color: #888888">// Call recursive function to guess number</span>
+        guessNumber<span style="color: #333333">(</span><span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">,</span> <span style="color: #0000DD; font-weight: bold">100</span><span style="color: #333333">,</span> userEntry<span style="color: #333333">);</span>
+    <span style="color: #333333">}</span>
+
+    <span style="color: #008800; font-weight: bold">private</span> <span style="color: #008800; font-weight: bold">static</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">guessNumber</span><span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span> lowValue<span style="color: #333333">,</span> <span style="color: #333399; font-weight: bold">int</span> highValue<span style="color: #333333">,</span> <span style="color: #333399; font-weight: bold">int</span> mysteryNumber<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+
+        <span style="color: #333399; font-weight: bold">int</span> middleValue<span style="color: #333333">;</span> <span style="color: #888888">// Midpoint between lowValue/highValue</span>
+
+        middleValue <span style="color: #333333">=</span> <span style="color: #333333">(</span>highValue <span style="color: #333333">+</span> lowValue<span style="color: #333333">)</span> <span style="color: #333333">/</span> <span style="color: #0000DD; font-weight: bold">2</span><span style="color: #333333">;</span>
+
+        numberOfGuesses <span style="color: #333333">=</span> <span style="color: #333333">++</span>numberOfGuesses<span style="color: #333333">;</span>
+
+        temp <span style="color: #333333">=</span> temp <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot;Guess number &quot;</span> <span style="color: #333333">+</span> numberOfGuesses <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot;:&quot;</span> <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot; Checking if user&#39;s number&quot;</span> <span style="color: #333333">+</span>
+                <span style="background-color: #fff0f0">&quot; is lower,&quot;</span> <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot; higher, or equal to &quot;</span> <span style="color: #333333">+</span> middleValue <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot;...\n&quot;</span><span style="color: #333333">;</span>
+
+
+        <span style="color: #008800; font-weight: bold">if</span> <span style="color: #333333">(</span>mysteryNumber <span style="color: #333333">==</span> middleValue<span style="color: #333333">)</span> <span style="color: #333333">{</span> <span style="color: #888888">// Base case: found number</span>
+            CodeDemoGUI<span style="color: #333333">.</span><span style="color: #0000CC">showResult</span><span style="color: #333333">.</span><span style="color: #0000CC">setText</span><span style="color: #333333">(</span>temp <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot;\nIt took the computer &quot;</span> <span style="color: #333333">+</span> numberOfGuesses <span style="color: #333333">+</span>
+                    <span style="background-color: #fff0f0">&quot; attempts to guess&quot;</span> <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot; the user&#39;s number,&quot;</span> <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot; which is &quot;</span> <span style="color: #333333">+</span> mysteryNumber <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot;\n&quot;</span><span style="color: #333333">);</span>
+        <span style="color: #333333">}</span>
+        <span style="color: #008800; font-weight: bold">else</span> <span style="color: #333333">{</span>       <span style="color: #888888">// Recursive case: split into lower OR upper half</span>
+            <span style="color: #008800; font-weight: bold">if</span> <span style="color: #333333">(</span>mysteryNumber <span style="color: #333333">&lt;</span> middleValue<span style="color: #333333">)</span> <span style="color: #333333">{</span>  <span style="color: #888888">// Guess in lower half</span>
+                guessNumber<span style="color: #333333">(</span>lowValue<span style="color: #333333">,</span> middleValue<span style="color: #333333">,</span> mysteryNumber<span style="color: #333333">);</span>               <span style="color: #888888">// Recursive call</span>
+            <span style="color: #333333">}</span>
+            <span style="color: #008800; font-weight: bold">else</span> <span style="color: #333333">{</span>                              <span style="color: #888888">// Guess in upper half</span>
+                guessNumber<span style="color: #333333">(</span>middleValue <span style="color: #333333">+</span> <span style="color: #0000DD; font-weight: bold">1</span><span style="color: #333333">,</span> highValue<span style="color: #333333">,</span> mysteryNumber<span style="color: #333333">);</span> <span style="color: #888888">// Recursive call</span>
+            <span style="color: #333333">}</span>
+        <span style="color: #333333">}</span>
+    <span style="color: #333333">}</span>
+</pre>
+      </div>
+      <br>
+      <h3>What's the code doing?</h3>
+      <p>The recursionDemoMethod is called from the CodeDemoGUI and passed an int argument named 'userEntry', which is a value taken from the user via the spinner. The recursionDemoMethod then calls the guessNumber method passing it an int argument named 'lowValue', an int argument named 'highValue', and an int argument named 'mysteryNumber' which represents the number given by the user that the computer is trying to "guess". The guessNumber method uses a recursive binary search algorithm. It operates by calculating the middleValue between the received lowValue and highValue, and evaluating if mysteryNumber is equal to, lower than, or higher than the middleValue. If the middleValue is equivalent to the mysteryNumber, the base case has been reached, and the guess attempts are output to the text area in the Code Demo GUI window, and the method is finished. If mysteryNumber is less than middleValue, a recursive call is made to guessNumber passing through lowValue unchanged, middleValue as the new highValue, and passing through mysteryNumber unchanged. Else, if middleValue is less than mysteryNumber, a recursive call is made to guessNumber passing middleValue + 1 as the new lowValue, passing through highValue unchanged, and passing through mysteryNumber unchanged. Each time the guessNumber method executes, it cuts the search range in half, until it "brackets in" on the value of mysteryNumber.</p>
    </body>
 </html>
-   
