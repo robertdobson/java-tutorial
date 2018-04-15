@@ -19,7 +19,7 @@ public class DocumentViewer extends JPanel implements ActionListener {
 
         setLayout(new BorderLayout());
 
-        //Create an editor pane.
+        // Create an editor pane.
         JEditorPane editorPane = createEditorPane();
         JScrollPane editorScrollPane = new JScrollPane(editorPane);
         editorScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
@@ -32,7 +32,7 @@ public class DocumentViewer extends JPanel implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
 
-    }
+        }
 
     private JEditorPane createEditorPane() {
 
@@ -56,17 +56,17 @@ public class DocumentViewer extends JPanel implements ActionListener {
      */
     private static void createAndShowGUI() {
 
-        //Create and set up the window.
+        // Create and set up the window.
         JFrame frame = new JFrame("Document Viewer");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-        //Add content to the window.
+        // Add content to the window.
         frame.add(new DocumentViewer());
         frame.setPreferredSize(new Dimension(600, 900));
 
-        //Display the window.
+        // Display the window.
         frame.pack();
-        //This code positions window in upper right corner of screen
+        // This code positions window in upper right corner of screen
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         GraphicsDevice defaultScreen = ge.getDefaultScreenDevice();
         Rectangle rect = defaultScreen.getDefaultConfiguration().getBounds();
@@ -81,10 +81,10 @@ public class DocumentViewer extends JPanel implements ActionListener {
         document = doc;
         titledBorder = border;
 
-        //creating and showing this application's GUI.
+        // Creating and showing this application's GUI.
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                //Turn off metal's use of bold fonts
+                // Turn off metal's use of bold fonts
                 UIManager.put("swing.boldMetal", Boolean.FALSE);
                 createAndShowGUI();
             }

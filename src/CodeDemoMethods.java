@@ -164,8 +164,8 @@ public class CodeDemoMethods {
 
 
         if (mysteryNumber == middleValue) { // Base case: found number
-            CodeDemoGUI.showResult.setText(temp + "\nIt took the computer " + numberOfGuesses + " attempts to guess" +
-                    " the user's number," + " which is " + mysteryNumber + "\n");
+            CodeDemoGUI.showResult.setText(temp + "\nIt took the computer " + numberOfGuesses +
+                    " attempts to guess" + " the user's number," + " which is " + mysteryNumber + "\n");
         }
         else {       // Recursive case: split into lower OR upper half
             if (mysteryNumber < middleValue) {  // Guess in lower half

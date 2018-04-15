@@ -11,6 +11,7 @@ import javax.swing.*;
 
 public class TutorialMenu extends JPanel implements ActionListener{
 
+    private static String introductionString = "Introduction";
     private static String branchingString = "Branching";
     private static String loopsString = "Loops";
     private static String arraysString = "Arrays";
@@ -21,7 +22,8 @@ public class TutorialMenu extends JPanel implements ActionListener{
 
     private JLabel picture;
 
-    //Create the radio buttons.
+    // Create the radio buttons.
+    static JRadioButton introductionButton = new JRadioButton(introductionString);
     static JRadioButton branchingButton = new JRadioButton(branchingString);
     static JRadioButton loopsButton = new JRadioButton(loopsString);
     static JRadioButton arraysButton = new JRadioButton(arraysString);
@@ -36,7 +38,11 @@ public class TutorialMenu extends JPanel implements ActionListener{
                 " and click the 'Explore' button.", SwingConstants.CENTER);
         textLabel.setPreferredSize(new Dimension(300, 50));
 
-        //Set radio button behavior
+        // Set radio button behavior
+        introductionButton.setMnemonic(KeyEvent.VK_I);
+        introductionButton.setActionCommand(introductionString);
+        introductionButton.setSelected(true);
+
         branchingButton.setMnemonic(KeyEvent.VK_B);
         branchingButton.setActionCommand(branchingString);
         branchingButton.setSelected(true);
@@ -56,8 +62,9 @@ public class TutorialMenu extends JPanel implements ActionListener{
         genericsButton.setMnemonic(KeyEvent.VK_G);
         genericsButton.setActionCommand(genericsString);
 
-        //Group the radio buttons.
+        // Group the radio buttons.
         final ButtonGroup group = new ButtonGroup();
+        group.add(introductionButton);
         group.add(branchingButton);
         group.add(loopsButton);
         group.add(arraysButton);
@@ -65,7 +72,8 @@ public class TutorialMenu extends JPanel implements ActionListener{
         group.add(recursionButton);
         group.add(genericsButton);
 
-        //Register a listener for the radio buttons.
+        // Register a listener for the radio buttons.
+        introductionButton.addActionListener(this);
         branchingButton.addActionListener(this);
         loopsButton.addActionListener(this);
         arraysButton.addActionListener(this);
@@ -73,16 +81,17 @@ public class TutorialMenu extends JPanel implements ActionListener{
         recursionButton.addActionListener(this);
         genericsButton.addActionListener(this);
 
-        //Set up the picture label.
+        // Set up the picture label.
         picture = new JLabel(createImageIcon("images/Programmer.jpg"));
 
-        //Setting size of the picture displayed on TutorialMenu
+        // Setting size of the picture displayed on TutorialMenu
         picture.setPreferredSize(new Dimension(360, 250));
         picture.setIcon(createImageIcon("images/Programmer.jpg"));
 
 
-        //Put the radio buttons in a column in a panel.
+        // Put the radio buttons in a column in a panel.
         JPanel radioPanel = new JPanel(new GridLayout(0, 1));
+        radioPanel.add(introductionButton);
         radioPanel.add(branchingButton);
         radioPanel.add(loopsButton);
         radioPanel.add(arraysButton);
@@ -90,7 +99,7 @@ public class TutorialMenu extends JPanel implements ActionListener{
         radioPanel.add(recursionButton);
         radioPanel.add(genericsButton);
 
-        //Create the 'Explore' button.
+        // Create the 'Explore' button.
         JButton exploreButton = new JButton();
         exploreButton.setText(buttonString);
         exploreButton.setCursor(Cursor.getDefaultCursor());
@@ -98,7 +107,7 @@ public class TutorialMenu extends JPanel implements ActionListener{
         exploreButton.setActionCommand(buttonString);
         exploreButton.addActionListener(this);
 
-        //Add all the components to the content pane.
+        // Add all the components to the content pane.
         add(textLabel, BorderLayout.NORTH);
         add(radioPanel, BorderLayout.LINE_START);
         add(picture, BorderLayout.CENTER);
@@ -159,16 +168,16 @@ public class TutorialMenu extends JPanel implements ActionListener{
      */
     private static void createAndShowGUI() {
 
-        //Create and set up the window.
+        // Create and set up the window.
         JFrame menuFrame = new JFrame("Java Tutorial");
         menuFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        //Create and set up the content pane.
+        // Create and set up the content pane.
         JComponent newContentPane = new TutorialMenu();
         newContentPane.setOpaque(true); //content panes must be opaque
         menuFrame.setContentPane(newContentPane);
 
-        //Display the window.
+        // Display the window.
         menuFrame.pack();
         menuFrame.setLocationRelativeTo(null); //Sets window position in middle of screen
         menuFrame.setVisible(true);
@@ -176,7 +185,7 @@ public class TutorialMenu extends JPanel implements ActionListener{
 
     public static void main(String[] args) {
 
-        //creating and showing this application's GUI.
+        // Creating and showing this application's GUI.
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 createAndShowGUI();

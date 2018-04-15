@@ -62,7 +62,7 @@ public class CodeDemoGUI extends JPanel implements ActionListener, ChangeListene
     /** Listens to the button. */
     public void actionPerformed(ActionEvent e) {
         if (submit.equals(e.getActionCommand())) {
-            //Call specific demo processing method here
+            // Call specific demo processing method here
             if (TutorialMenu.branchingButton.isSelected()) {
                 CodeDemoMethods.branchingDemoMethod(userInput);
             }
@@ -87,18 +87,18 @@ public class CodeDemoGUI extends JPanel implements ActionListener, ChangeListene
      */
     private static void createAndShowGUI() {
 
-        //Create and set up the window.
+        // Create and set up the window.
         JFrame codeDemoFrame = new JFrame(demoTitle);
         codeDemoFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-        //Create and set up the content pane.
+        // Create and set up the content pane.
         JComponent newContentPane = new CodeDemoGUI();
         newContentPane.setOpaque(true);
         codeDemoFrame.setContentPane(newContentPane);
         codeDemoFrame.add(codeDemoPanel);
         codeDemoFrame.setPreferredSize(new Dimension(550, 425));
 
-        //Display the window.
+        // Display the window.
         codeDemoFrame.pack();
         codeDemoFrame.setVisible(true);
     }
@@ -112,9 +112,11 @@ public class CodeDemoGUI extends JPanel implements ActionListener, ChangeListene
         spinnerMin = min;
         spinnerMax = max;
         spinnerStep = step;
+
+        // Reset the text area
         showResult.setText("");
 
-        //creating and showing this application's GUI.
+        // Creating and showing this application's GUI.
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 createAndShowGUI();
