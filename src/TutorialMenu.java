@@ -45,7 +45,6 @@ public class TutorialMenu extends JPanel implements ActionListener{
 
         branchingButton.setMnemonic(KeyEvent.VK_B);
         branchingButton.setActionCommand(branchingString);
-        branchingButton.setSelected(true);
 
         loopsButton.setMnemonic(KeyEvent.VK_L);
         loopsButton.setActionCommand(loopsString);
@@ -117,7 +116,11 @@ public class TutorialMenu extends JPanel implements ActionListener{
 
     /** Listens to the'Explore' button and checks which radio button is selected. */
         public void actionPerformed(ActionEvent e) {
-            if (buttonString.equals(e.getActionCommand()) && branchingButton.isSelected()) {
+            if (buttonString.equals(e.getActionCommand()) && introductionButton.isSelected()) {
+                DocumentViewer.runDocumentViewer("Introduction.html", "Introduction");
+                Toolkit.getDefaultToolkit().beep();
+            }
+            else if (buttonString.equals(e.getActionCommand()) && branchingButton.isSelected()) {
                 DocumentViewer.runDocumentViewer("Branching.html", "Branching");
                 CodeDemoGUI.runCodeDemo("Branching Demo",
                         "Please select your age to purchase a movie ticket:", 0, 0, 120, 1);
@@ -169,7 +172,7 @@ public class TutorialMenu extends JPanel implements ActionListener{
     private static void createAndShowGUI() {
 
         // Create and set up the window.
-        JFrame menuFrame = new JFrame("Java Tutorial");
+        JFrame menuFrame = new JFrame("Java Tutorial: by Robert Dobson");
         menuFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Create and set up the content pane.

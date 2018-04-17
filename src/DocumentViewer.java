@@ -9,6 +9,8 @@ import javax.swing.*;
 import java.awt.*;              //for layout managers and more
 import java.awt.event.*;        //for action events
 import java.io.IOException;
+import javax.swing.event.HyperlinkEvent;
+import javax.swing.event.HyperlinkListener;
 
 public class DocumentViewer extends JPanel implements ActionListener {
 
@@ -21,6 +23,18 @@ public class DocumentViewer extends JPanel implements ActionListener {
 
         // Create an editor pane.
         JEditorPane editorPane = createEditorPane();
+        editorPane.addHyperlinkListener(new HyperlinkListener() {
+            @Override
+            public void hyperlinkUpdate(HyperlinkEvent e) {
+                if (HyperlinkEvent.EventType.ACTIVATED.equals(e.getEventType())) {
+                    try {
+                        Desktop.getDesktop().browse((e.getURL().toURI()));
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        });
         JScrollPane editorScrollPane = new JScrollPane(editorPane);
         editorScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         editorScrollPane.setPreferredSize(new Dimension(600, 900));
@@ -62,7 +76,7 @@ public class DocumentViewer extends JPanel implements ActionListener {
 
         // Add content to the window.
         frame.add(new DocumentViewer());
-        frame.setPreferredSize(new Dimension(600, 900));
+        frame.setPreferredSize(new Dimension(680, 1000));
 
         // Display the window.
         frame.pack();
