@@ -27,10 +27,10 @@
          <ul>
             <li><b>Formatted Text</b> vs. <b>Binary</b> files
                <ul>
-                  <li>A <i>text</i> file is simply made of readable text characters. It 
+                  <li>A text file is simply made of readable text characters. It 
                      looks like the output that is typically printed to the screen 
                      through the <tt>println</tt> statement.</li>
-                  <li>A <i>binary</i> file contains unformatted data, saved in its raw 
+                  <li>A binary file contains unformatted data, saved in its raw 
                      memory format.  (For example, the integer 123456789 is saved as a 
                      4-byte chunk of data, the same as it's stored in memory - NOT as the 
                      9 digits in this sentence).</li>
@@ -38,9 +38,9 @@
             </li>
             <li><b>Sequential</b> vs. <b>Random Access</b> files
                <ul>
-                  <li>A <i>sequential</i> file is one that is typically written or read 
+                  <li>A sequential file is one that is typically written or read 
                      from start to finish</li>
-                  <li>A <i>random access</i> file is one that stores records, all of the 
+                  <li>A random access file is one that stores records, all of the 
                      same size, and can read or write single records in place, without 
                      affecting the rest of the file</li>
                </ul>
@@ -49,7 +49,7 @@
          </ul>
       </ul>
       <br>
-      <p>An example of reading and writing a text file is demonstrated in the Code Demo GUI using the following code from the fileIODemoMethod:</p>
+      <p>An example of reading and writing a text file is demonstrated in the File Input/Output Demo window using the following code from the fileIODemoMethod. The user doesn't need to enter a value. Simply click the 'Submit' button to run the code. After the code completes, the user should be able to find a new file named 'output.txt' containing the same contents read from 'names.txt' in the same directory/folder as the Java Tutorial application.</p>
       <br>
       <!-- HTML generated using hilite.me -->
       <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
@@ -84,6 +84,6 @@
       </div>
       <br>
       <h3>What's the code doing?</h3>
-      <p>The fileIODemoMethod is called from the CodeDemoGUI with a return type of void. The code then tries to read from the input file 'input.txt' while it is not null (while something is available to be read), builds a string to output the file contents read and written to the text area in the Code Demo GUI window, writes the file contents to a new file called 'output.txt', and closes the readBuffer and writeBuffer. If it is unsuccessful (unable to open or encounters an error reading the file), then an exception error message is sent to the text area of the Code Demo GUI window.</p>
+      <p>The fileIODemoMethod is called from the CodeDemoGUI. The code then tries to read from the input file 'names.txt' while it is not null (while something is available to be read), builds a string to output the file contents read and written to the text area in the File Input/Output Demo window, writes the file contents to a new file called 'output.txt', and closes the readBuffer and writeBuffer. If it is unsuccessful (unable to open or encounters an error reading the file), then an exception error message is sent to the text area of the File Input/Output Demo window.</p>
    </body>
 </html>
