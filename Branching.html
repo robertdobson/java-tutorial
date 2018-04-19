@@ -14,20 +14,20 @@
    
    <body>
       <h3>What is Branching?</h3>
-      <p>A branch is an instruction in a computer program that can cause a computer to begin executing a different instruction sequence and thus deviate from its default behavior of executing instructions in order.[a] Branch (or branching, branched) may also refer to the act of switching execution to a different instruction sequence as a result of executing a branch instruction. A branch instruction can be either an unconditional branch, which always results in branching, or a conditional branch, which may or may not cause branching, depending on some condition. Branch instructions are used to implement control flow in program loops and conditionals (i.e., executing a particular sequence of instructions only if certain conditions are satisfied).</p>
+      <p>A branch is an instruction in a computer program that can cause a computer to begin executing a different instruction sequence and thus deviate from its default behavior of executing instructions in order. Branch (or branching) may also refer to the act of switching execution to a different instruction sequence as a result of executing a branch instruction. A branch instruction can be either an unconditional branch, which always results in branching, or a conditional branch, which may or may not cause branching, depending on some condition. Branch instructions are used to implement control flow in program loops and conditionals (i.e., executing a particular sequence of instructions only if certain conditions are satisfied).</p>
       <br>
       <h3>Some commonly used branching statements:</h3>
       <ul>
-         <li>if</li>
-         <li>if-else</li>
-         <li>nested-if</li>
-         <li>if-else-if</li>
-         <li>switch-case</li>
-         <li>jump - break, continue, return</li>
+         <li><tt>if</tt></li>
+			<li><tt>if-else</tt></li>
+			<li>nested <tt>if</tt></li>
+			<li><tt>if-else-if</tt></li>
+			<li><tt>switch-case</tt></li>
+         <li>jump - <tt>break, continue, return</tt></li>
       </ul>
       <p>These statements allow you to control the flow of your program’s execution based upon conditions known only during run time.</p>
       <br>
-      <p>A branching example is demonstrated with if statements in the Code Demo GUI using the following code from the branchingDemoMethod:</p>
+      <p>A branching example is demonstrated with <tt>if-else</tt> statements in the Branching Demo window using the following code from the branchingDemoMethod. The user selects their age (choose between 0 and 120), and clicks the 'Submit' button to purchase a movie ticket.</p>
       <br>
       <!-- HTML generated using hilite.me -->
       <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
@@ -48,7 +48,7 @@
       </div>
       <br>
       <h3>What's the code doing?</h3>
-      <p>The branchingDemoMethod is called from the CodeDemoGUI and passed an int argument called 'userEntry', which is a value taken from the user via the spinner.
-         The code then processes the information through the use of if statements to check the users entered age. Depending on the age given, a message is output to the text area in the Code Demo GUI window giving the appropriate movie ticket price.</p>
+      <p>The branchingDemoMethod is called from the CodeDemoGUI and passed an int argument named <i>userEntry</i>, which is a value taken from the user via the spinner.
+         The code then processes the information through the use of <tt>if-else</tt> statements to check the users entered age. Depending on the age given, a message is output to the text area in the Branching Demo window giving the appropriate movie ticket price.</p>
    </body>
 </html>
