@@ -151,6 +151,9 @@ public class TutorialMenu extends JPanel implements ActionListener{
                 Toolkit.getDefaultToolkit().beep();
             }
             else if (buttonString.equals(e.getActionCommand()) && genericsButton.isSelected()) {
+                DocumentViewer.runDocumentViewer("Generics.html", "Generics");
+                CodeDemoGUI.runCodeDemo("Generics Demo", "Click button to process generic data types",
+                        0, 0, 0, 0);
                 Toolkit.getDefaultToolkit().beep();
             }
         }

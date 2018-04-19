@@ -78,6 +78,9 @@ public class CodeDemoGUI extends JPanel implements ActionListener, ChangeListene
             else if (TutorialMenu.recursionButton.isSelected()) {
                 CodeDemoMethods.recursionDemoMethod(userInput);
             }
+            else if (TutorialMenu.genericsButton.isSelected()) {
+                CodeDemoMethods.genericsDemoMethod();
+            }
             Toolkit.getDefaultToolkit().beep();
         }
     }

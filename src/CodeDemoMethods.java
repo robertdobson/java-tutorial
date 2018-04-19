@@ -34,6 +34,17 @@ public class CodeDemoMethods {
     // Variable for guessNumber method
     private static int numberOfGuesses = 0;
 
+    // Variables for genericsDemoMethod
+    private static Integer num1 = 55;
+    private static Integer num2 = 99;
+    private static Integer num3 = 66;
+    private static Character char1 = 'a';
+    private static Character char2 = 'z';
+    private static Character char3 = 'm';
+    private static String str1 = "Zebra";
+    private static String str2 = "Alpha";
+    private static String str3 = "Mike";
+
     /* Variable used by arrayDemoMethod, fileIODemoMethod, and recursionDemoMethod to
        build a string that gets displayed as a final output to JTextArea of CodeDemoGUI */
     private static String temp = "";
@@ -175,5 +186,32 @@ public class CodeDemoMethods {
                 guessNumber(middleValue + 1, highValue, mysteryNumber); // Recursive call
             }
         }
+    }
+
+    public static void genericsDemoMethod() {
+
+        temp = "";
+
+        temp = "Integers compared:  " + num1 + "  " + num2 + "  " + num3 + "\n";
+        temp = temp + "Minimum:  " + typeMin(num1, num2, num3) + "\n\n";
+        temp = temp + "Characters compared:  " + char1 + "  " + char2 + "  " + char3 + "\n";
+        temp = temp + "Minimum:  " + typeMin(char1, char2, char3) + "\n\n";
+        temp = temp + "Strings compared:  " + str1 + "  " + str2 + "  " + str3 + "\n";
+        temp = temp + "Minimum:  " + typeMin(str1, str2, str3) + "\n\n";
+
+        CodeDemoGUI.showResult.setText(temp);
+    }
+
+    public static <GenericType extends Comparable<GenericType>>
+    GenericType typeMin(GenericType item1, GenericType item2, GenericType item3) {
+        GenericType minVal = item1; // Holds minimum item value, initialized to first item.
+
+        if (item2.compareTo(minVal) < 0) {
+            minVal = item2;
+        }
+        if (item3.compareTo(minVal) < 0) {
+            minVal = item3;
+        }
+        return minVal;
     }
 }
