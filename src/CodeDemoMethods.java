@@ -35,18 +35,19 @@ public class CodeDemoMethods {
     private static int numberOfGuesses = 0;
 
     // Variables for genericsDemoMethod
-    private static Integer num1 = 55;
-    private static Integer num2 = 99;
-    private static Integer num3 = 66;
-    private static Character char1 = 'a';
-    private static Character char2 = 'z';
-    private static Character char3 = 'm';
+    private static Integer num1 = 99;
+    private static Integer num2 = 77;
+    private static Integer num3 = 55;
+    private static Character char1 = 'z';
+    private static Character char2 = 'm';
+    private static Character char3 = 'a';
     private static String str1 = "Zebra";
     private static String str2 = "Alpha";
     private static String str3 = "Mike";
 
-    /* Variable used by arrayDemoMethod, fileIODemoMethod, and recursionDemoMethod to
-       build a string that gets displayed as a final output to JTextArea of CodeDemoGUI */
+    /* Variable used by arrayDemoMethod, fileIODemoMethod, recursionDemoMethod, and
+    genericsDemoMethod to build a string that gets displayed as a final output to
+    JTextArea of CodeDemoGUI */
     private static String temp = "";
 
     public static void branchingDemoMethod(int userEntry) {
