@@ -1,16 +1,15 @@
-/**
- *  Generates a GUI that serves as a code demonstration interface.
- *
- *  @author   Robert Dobson
- *  @version  1.0
- */
-
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+/**
+ *  The CodeDemoGUI class generates a GUI that serves as a code demonstration interface.
+ *
+ *  @author   Robert Dobson
+ *  @version  1.0
+ */
 public class CodeDemoGUI extends JPanel implements ActionListener, ChangeListener {
 
     private static String submit = "Submit";

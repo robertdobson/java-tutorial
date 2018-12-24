@@ -1,14 +1,13 @@
-/**
- *  Generates a GUI that serves as a menu driver.
- *
- *  @author   Robert Dobson
- *  @version  1.0
- */
-
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+/**
+ *  The TutorialMenu class generates a GUI that serves as a menu driver.
+ *
+ *  @author   Robert Dobson
+ *  @version  1.0
+ */
 public class TutorialMenu extends JPanel implements ActionListener{
 
     private static String introductionString = "Introduction";

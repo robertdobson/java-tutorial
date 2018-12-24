@@ -1,10 +1,3 @@
-/**
- *  Generates a GUI that serves as a document viewer.
- *
- *  @author   Robert Dobson
- *  @version  1.0
- */
-
 import javax.swing.*;
 import java.awt.*;              //for layout managers and more
 import java.awt.event.*;        //for action events
@@ -12,6 +5,12 @@ import java.io.IOException;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.event.HyperlinkListener;
 
+/**
+ *  The DocumentViewer class generates a GUI that serves as a document viewer.
+ *
+ *  @author   Robert Dobson
+ *  @version  1.0
+ */
 public class DocumentViewer extends JPanel implements ActionListener {
 
     private static String document;

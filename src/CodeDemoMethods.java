@@ -1,13 +1,12 @@
+import java.io.*;
+import java.util.Random;
+
 /**
- *  Contains the methods demonstrated via CodeDemoGUI.
+ *  The CodeDemoMethods class contains the methods demonstrated via CodeDemoGUI.
  *
  *  @author   Robert Dobson
  *  @version  1.0
  */
-
-import java.io.*;
-import java.util.Random;
-
 public class CodeDemoMethods {
 
     // Variables for branchingDemoMethod
