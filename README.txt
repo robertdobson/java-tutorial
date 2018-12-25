@@ -16,5 +16,8 @@ src/DocumentViewer.java
 src/TutorialMenu.java
     - The TutorialMenu class generates a GUI that serves as a menu driver.
 
+src/resources/
+    - This folder contains the folder for images and HTML documents displayed in the tutorial application.
+
 README.txt
     - description of submitted files
