@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Generics</title>
+      <!--
+         Java Tutorial Generics documentation page
+         Filename: Generics.html
+      
+         Author: Robert Dobson   
+         Date: 04/18/2018
+      -->
+   </head>
+   
+   <body>
+      <h3>What are generics?</h3>
+      <p>Java generic methods and generic classes, similar to templates in C++, enable programmers to specify, with a single method declaration, a set of related methods, or with a single class declaration, a set of related types. The idea is to allow type (Integer, String, … etc and user defined types) to be a parameter to methods, classes and interfaces.</p>
+      <p>Generics can be very handy for the purposes of writing single methods or single classes that handle multiple data types and, as a result, reduce redundancy of code by eliminating the need to write multiple similar methods or classes for various data types. Based on the types of the arguments passed to the generic method, the compiler handles each method call appropriately.</p>
+      <br>
+      <h3>Advantages of generics:</h3>
+      <ul>
+         <li>Type-safety - We can hold only a single type of objects in generics. It doesn’t allow to store other objects.</li>
+         <li>Type casting is not required - There is no need to typecast the object.</li>
+         <li>Compile-Time Checking - It is checked at compile time so problems will not occur at runtime. Good programming strategy is to handle the problem at compile time rather than runtime.</li>
+         <li>Code reuse - As previously stated, the ability to write one method or class that accepts and handles multiple data types.</li>
+      </ul>
+      <h3>Rules to define generic methods:</h3>
+      <ul>
+         <li>All generic method declarations have a type parameter section delimited by angle brackets (&lt; and &gt;) that precedes the method's return type.</li>
+         <li>Each type parameter section contains one or more type parameters separated by commas. A type parameter, also known as a type variable, is an identifier that specifies a generic type name.</li>
+         <li>The type parameters can be used to declare the return type and act as placeholders for the types of the arguments passed to the generic method, which are known as actual type arguments.</li>
+         <li>A generic method's body is declared like that of any other method. Note that type parameters can represent only reference types, not primitive types (like int, double and char).</li>
+      </ul>
+      <h3>Restrictions on use of generics:</h3>
+      <ul>
+         <li>Cannot instantiate generic types with primitive types.</li>
+         <li>Cannot create instances of type parameters.</li>
+         <li>Cannot declare static fields whose types are type parameters.</li>
+         <li>Cannot use casts or <tt>instanceof</tt> with parameterized types.</li>
+         <li>Cannot create arrays of parameterized types.</li>
+         <li>Cannot create, catch, or throw objects of parameterized types.</li>
+         <li>Cannot overload a method where the formal parameter types of each overload erase to the same raw type.</li>
+      </ul>
+      <p>A generic method is demonstrated in the Generics Demo window using the following code from the genericsDemoMethod and typeMin methods. The user doesn't need to enter a value. Simply click the 'Submit' button to run the code.</p>
+      <br>
+      <!-- HTML generated using hilite.me -->
+      <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+         <pre style="margin: 0; line-height: 125%"><span style="color: #888888">// Variables for genericsDemoMethod</span>
+    <span style="color: #008800; font-weight: bold">private</span> <span style="color: #008800; font-weight: bold">static</span> Integer num1 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">99</span><span style="color: #333333">;</span>
+    <span style="color: #008800; font-weight: bold">private</span> <span style="color: #008800; font-weight: bold">static</span> Integer num2 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">77</span><span style="color: #333333">;</span>
+    <span style="color: #008800; font-weight: bold">private</span> <span style="color: #008800; font-weight: bold">static</span> Integer num3 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">55</span><span style="color: #333333">;</span>
+    <span style="color: #008800; font-weight: bold">private</span> <span style="color: #008800; font-weight: bold">static</span> Character char1 <span style="color: #333333">=</span> <span style="color: #0044DD">&#39;z&#39;</span><span style="color: #333333">;</span>
+    <span style="color: #008800; font-weight: bold">private</span> <span style="color: #008800; font-weight: bold">static</span> Character char2 <span style="color: #333333">=</span> <span style="color: #0044DD">&#39;m&#39;</span><span style="color: #333333">;</span>
+    <span style="color: #008800; font-weight: bold">private</span> <span style="color: #008800; font-weight: bold">static</span> Character char3 <span style="color: #333333">=</span> <span style="color: #0044DD">&#39;a&#39;</span><span style="color: #333333">;</span>
+    <span style="color: #008800; font-weight: bold">private</span> <span style="color: #008800; font-weight: bold">static</span> String str1 <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;Zebra&quot;</span><span style="color: #333333">;</span>
+    <span style="color: #008800; font-weight: bold">private</span> <span style="color: #008800; font-weight: bold">static</span> String str2 <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;Mike&quot;</span><span style="color: #333333">;</span>
+    <span style="color: #008800; font-weight: bold">private</span> <span style="color: #008800; font-weight: bold">static</span> String str3 <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;Alpha&quot;</span><span style="color: #333333">;</span>
+
+    <span style="color: #888888">/* Variable used by arrayDemoMethod, fileIODemoMethod, recursionDemoMethod, and</span>
+<span style="color: #888888">    genericsDemoMethod to build a string that gets displayed as a final output to</span>
+<span style="color: #888888">    JTextArea of CodeDemoGUI */</span>
+    <span style="color: #008800; font-weight: bold">private</span> <span style="color: #008800; font-weight: bold">static</span> String temp <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;&quot;</span><span style="color: #333333">;</span>
+
+<span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">static</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">genericsDemoMethod</span><span style="color: #333333">()</span> <span style="color: #333333">{</span>
+
+        temp <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;&quot;</span><span style="color: #333333">;</span>
+
+        temp <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;Integers compared:  &quot;</span> <span style="color: #333333">+</span> num1 <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot;  &quot;</span> <span style="color: #333333">+</span> num2 <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot;  &quot;</span> <span style="color: #333333">+</span> num3 <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot;\n&quot;</span><span style="color: #333333">;</span>
+        temp <span style="color: #333333">=</span> temp <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot;Minimum:  &quot;</span> <span style="color: #333333">+</span> typeMin<span style="color: #333333">(</span>num1<span style="color: #333333">,</span> num2<span style="color: #333333">,</span> num3<span style="color: #333333">)</span> <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot;\n\n&quot;</span><span style="color: #333333">;</span>
+        temp <span style="color: #333333">=</span> temp <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot;Characters compared:  &quot;</span> <span style="color: #333333">+</span> char1 <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot;  &quot;</span> <span style="color: #333333">+</span> char2 <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot;  &quot;</span> <span style="color: #333333">+</span> char3 <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot;\n&quot;</span><span style="color: #333333">;</span>
+        temp <span style="color: #333333">=</span> temp <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot;Minimum:  &quot;</span> <span style="color: #333333">+</span> typeMin<span style="color: #333333">(</span>char1<span style="color: #333333">,</span> char2<span style="color: #333333">,</span> char3<span style="color: #333333">)</span> <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot;\n\n&quot;</span><span style="color: #333333">;</span>
+        temp <span style="color: #333333">=</span> temp <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot;Strings compared:  &quot;</span> <span style="color: #333333">+</span> str1 <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot;  &quot;</span> <span style="color: #333333">+</span> str2 <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot;  &quot;</span> <span style="color: #333333">+</span> str3 <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot;\n&quot;</span><span style="color: #333333">;</span>
+        temp <span style="color: #333333">=</span> temp <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot;Minimum:  &quot;</span> <span style="color: #333333">+</span> typeMin<span style="color: #333333">(</span>str1<span style="color: #333333">,</span> str2<span style="color: #333333">,</span> str3<span style="color: #333333">)</span> <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot;\n\n&quot;</span><span style="color: #333333">;</span>
+
+        CodeDemoGUI<span style="color: #333333">.</span><span style="color: #0000CC">showResult</span><span style="color: #333333">.</span><span style="color: #0000CC">setText</span><span style="color: #333333">(</span>temp<span style="color: #333333">);</span>
+    <span style="color: #333333">}</span>
+
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">static</span> <span style="color: #333333">&lt;</span>GenericType <span style="color: #008800; font-weight: bold">extends</span> Comparable<span style="color: #333333">&lt;</span>GenericType<span style="color: #333333">&gt;&gt;</span>
+    GenericType <span style="color: #0066BB; font-weight: bold">typeMin</span><span style="color: #333333">(</span>GenericType item1<span style="color: #333333">,</span> GenericType item2<span style="color: #333333">,</span> GenericType item3<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+        GenericType minVal <span style="color: #333333">=</span> item1<span style="color: #333333">;</span> <span style="color: #888888">// Holds minimum item value, initialized to first item.</span>
+
+        <span style="color: #008800; font-weight: bold">if</span> <span style="color: #333333">(</span>item2<span style="color: #333333">.</span><span style="color: #0000CC">compareTo</span><span style="color: #333333">(</span>minVal<span style="color: #333333">)</span> <span style="color: #333333">&lt;</span> <span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">)</span> <span style="color: #333333">{</span>
+            minVal <span style="color: #333333">=</span> item2<span style="color: #333333">;</span>
+        <span style="color: #333333">}</span>
+        <span style="color: #008800; font-weight: bold">if</span> <span style="color: #333333">(</span>item3<span style="color: #333333">.</span><span style="color: #0000CC">compareTo</span><span style="color: #333333">(</span>minVal<span style="color: #333333">)</span> <span style="color: #333333">&lt;</span> <span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">)</span> <span style="color: #333333">{</span>
+            minVal <span style="color: #333333">=</span> item3<span style="color: #333333">;</span>
+        <span style="color: #333333">}</span>
+        <span style="color: #008800; font-weight: bold">return</span> minVal<span style="color: #333333">;</span>
+    <span style="color: #333333">}</span>
+</pre>
+      </div>
+      <br>
+      <h3>What's the code doing?</h3>
+      <p>The genericsDemoMethod is called from the CodeDemoGUI. The genericsDemoMethod then builds a string of output to display to the text area of the Generics Demo window, and calls the typeMin generic method in the process passing it arguments <i>num1</i>, <i>num2</i>, and <i>num3</i>. The typeMin method then determines the minimum value given using the compareTo method, and returns <i>minVal</i>. The same process is repeated for the <i>char</i> series and <i>str</i> series, and then the complete string is output to the text area of the Generics Demo window. As you can see, one generic method (typeMin) was able to process 3 different data types.</p>
+   </body>
+</html>

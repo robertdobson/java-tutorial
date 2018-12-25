@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF8"/>
+      <title>File I/O</title>
+      <!--
+         Java Tutorial File I/O documentation page
+         Filename: FileIO.html
+      
+         Author: Robert Dobson   
+         Date: 04/15/2018
+      -->
+   </head>
+   
+   <body>
+      <h1>Basics of File I/O and Stream Objects</h1>
+      <h2>Input/Ouput to and from files</h2>
+      <ul>
+         <li>File input and file output is an essential in programming.
+            <ul>
+               <li>Most software involves more than keyboard input and screen user interfaces.</li>
+               <li>Data needs to be stored somewhere when a program is not running, and that means writing data to disk.</li>
+               <li>For this, we need file input and file output techniques.</li>
+            </ul>
+         </li>
+         <h3>Kinds of Files</h3>
+         <ul>
+            <li><b>Formatted Text</b> vs. <b>Binary</b> files
+               <ul>
+                  <li>A text file is simply made of readable text characters. It 
+                     looks like the output that is typically printed to the screen 
+                     through the <tt>println</tt> statement.</li>
+                  <li>A binary file contains unformatted data, saved in its raw 
+                     memory format.  (For example, the integer 123456789 is saved as a 
+                     4-byte chunk of data, the same as it's stored in memory - NOT as the 
+                     9 digits in this sentence).</li>
+               </ul>
+            </li>
+            <li><b>Sequential</b> vs. <b>Random Access</b> files
+               <ul>
+                  <li>A sequential file is one that is typically written or read 
+                     from start to finish</li>
+                  <li>A random access file is one that stores records, all of the 
+                     same size, and can read or write single records in place, without 
+                     affecting the rest of the file</li>
+               </ul>
+            </li>
+            <li>(For now, we'll deal with sequential text files)</li>
+         </ul>
+      </ul>
+      <br>
+      <p>An example of reading and writing a text file is demonstrated in the File Input/Output Demo window using the following code from the fileIODemoMethod. The user doesn't need to enter a value. Simply click the 'Submit' button to run the code. After the code completes, the user should be able to find a new file named 'output.txt' containing the same contents read from 'names.txt' in the same directory/folder as the Java Tutorial application.</p>
+      <br>
+      <!-- HTML generated using hilite.me -->
+      <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+         <pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">static</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">fileIODemoMethod</span><span style="color: #333333">()</span> <span style="color: #333333">{</span>
+
+        <span style="color: #008800; font-weight: bold">try</span> <span style="color: #333333">{</span>
+            BufferedReader readBuffer <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> BufferedReader<span style="color: #333333">(</span><span style="color: #008800; font-weight: bold">new</span> FileReader<span style="color: #333333">(</span>inputFile<span style="color: #333333">));</span>
+            BufferedWriter writeBuffer <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> BufferedWriter<span style="color: #333333">(</span><span style="color: #008800; font-weight: bold">new</span> FileWriter<span style="color: #333333">(</span>outputFile<span style="color: #333333">));</span>
+
+            temp <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;\nList of names written to the file \&#39;output.txt\&#39;:\n\n&quot;</span><span style="color: #333333">;</span>
+
+            <span style="color: #008800; font-weight: bold">while</span><span style="color: #333333">((</span>textSegment <span style="color: #333333">=</span> readBuffer<span style="color: #333333">.</span><span style="color: #0000CC">readLine</span><span style="color: #333333">())</span> <span style="color: #333333">!=</span> <span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">)</span> <span style="color: #333333">{</span>
+                temp <span style="color: #333333">=</span> temp <span style="color: #333333">+</span> textSegment <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot;\n&quot;</span><span style="color: #333333">;</span>
+                writeBuffer<span style="color: #333333">.</span><span style="color: #0000CC">write</span><span style="color: #333333">(</span>textSegment<span style="color: #333333">);</span>
+                writeBuffer<span style="color: #333333">.</span><span style="color: #0000CC">newLine</span><span style="color: #333333">();</span>
+            <span style="color: #333333">}</span>
+
+            CodeDemoGUI<span style="color: #333333">.</span><span style="color: #0000CC">showResult</span><span style="color: #333333">.</span><span style="color: #0000CC">setText</span><span style="color: #333333">(</span>temp<span style="color: #333333">);</span>
+
+            readBuffer<span style="color: #333333">.</span><span style="color: #0000CC">close</span><span style="color: #333333">();</span>
+            writeBuffer<span style="color: #333333">.</span><span style="color: #0000CC">close</span><span style="color: #333333">();</span>
+        <span style="color: #333333">}</span>
+        <span style="color: #008800; font-weight: bold">catch</span> <span style="color: #333333">(</span>FileNotFoundException unableToOpen<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+            CodeDemoGUI<span style="color: #333333">.</span><span style="color: #0000CC">showResult</span><span style="color: #333333">.</span><span style="color: #0000CC">setText</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;Unable to open file &#39;&quot;</span> <span style="color: #333333">+</span> inputFile <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot;&#39;&quot;</span><span style="color: #333333">);</span>
+        <span style="color: #333333">}</span>
+        <span style="color: #008800; font-weight: bold">catch</span> <span style="color: #333333">(</span>IOException errorReading<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+            CodeDemoGUI<span style="color: #333333">.</span><span style="color: #0000CC">showResult</span><span style="color: #333333">.</span><span style="color: #0000CC">setText</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;Error reading file &#39;&quot;</span> <span style="color: #333333">+</span> inputFile <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot;&#39;&quot;</span><span style="color: #333333">);</span>
+        <span style="color: #333333">}</span>
+
+    <span style="color: #333333">}</span>
+</pre>
+      </div>
+      <br>
+      <h3>What's the code doing?</h3>
+      <p>The fileIODemoMethod is called from the CodeDemoGUI. The code then tries to read from the input file 'names.txt' while it is not null (while something is available to be read), builds a string to output the file contents read and written to the text area in the File Input/Output Demo window, writes the file contents to a new file called 'output.txt', and closes the readBuffer and writeBuffer. If it is unsuccessful (unable to open or encounters an error reading the file), then an exception error message is sent to the text area of the File Input/Output Demo window.</p>
+   </body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF8"/>
+      <title>Loops</title>
+      <!--
+         Java Tutorial Loops documentation page
+         Filename: Loops.html
+      
+         Author: Robert Dobson   
+         Date: 04/15/2018
+      -->
+   </head>
+   
+   <body>
+      <h3>What is a loop?</h3>
+      <p>A loop is a sequence of statements which is specified once but which may be carried out several times in succession. The code "inside" the loop (the body of the loop) is obeyed a specified number of times, or once for each of a collection of items, or until some condition is met, or indefinitely.</p>
+      <br>
+      <h3>Examples of some common loops:</h3>
+      <br>
+      <div align="center"> <img src="images/do, do-while, for.jpg"> </div>
+      <div align="center">
+         <table WIDTH="600" BORDER="0" CELLSPACING="0" CELLPADDING="0" height="650" id="table3">
+            <tr>
+               <td ALIGN="center" width="396" height="713"><table WIDTH="389" BORDER="2" CELLSPACING="0" CELLPADDING="5" bgcolor="#FFCC99" height="600" bordercolor="#800000" style="border-collapse: collapse" id="table4">
+                     <tr bgcolor="#FFEAD5">
+                        <td bgcolor="#CC3300" width="371" height="22"><p align="center"><font color="#FFFFFF" face="Comic Sans MS" size="5"><b>Which
+                              LOOP should I use????</b></font></p></td>
+                     </tr>
+                     <tr>
+                        <td width="371" height="575" valign="top"><ul>
+                              <li>
+                                 <p align="left"><b><font color="#CC3300" size="5">while:&nbsp;</font></b><font size="4"> the loop <font color="#CC3300"><b> must repeat until a certain &quot;condition&quot; is
+                                    met</b></font>.&nbsp; If the &quot;condition&quot; is FALSE at the beginning of
+                                    the loop, the loop is never executed.&nbsp; The
+                                    &quot;condition&quot; may be determined by the user at the keyboard.&nbsp;
+                                    The &quot;condition&quot; may be a numeric or an alphanumeric entry.&nbsp; <b>This is a good, solid looping process with applications to 
+                                    numerous situations.</b></font></p>
+                              </li>
+                           </ul>
+                           <p align="left">&nbsp;</p>
+                           <ul>
+                              <li>
+                                 <p align="left"><b><font color="#CC3300" size="5">do-while:&nbsp;</font></b><font size="4"> operates under the same concept as the while loop except that the
+                                    do-while <font color="#CC3300"><b> will always execute the body of the loop at
+                                    least one time</b></font>.&nbsp; (Do-while is an exit-condition loop -- the condition is checked at the
+                                    end of the loop.)&nbsp; <b>This looping process is a good choice when 
+                                    you are asking a question, whose answer will determine if the loop 
+                                    is repeated.</b></font></p>
+                              </li>
+                           </ul>
+                           <p align="left">&nbsp;</p>
+                           <ul>
+                              <li>
+                                 <p align="left"><b><font color="#CC3300" size="5">for:&nbsp;</font></b><font size="4"> the loop is <font color="#CC3300"><b>repeated a &quot;specific&quot; number of
+                                    times</b></font>,
+                                    determined by the program or the user.&nbsp; The loop
+                                    &quot;counts&quot; the number of times the body will be executed.&nbsp; <b>This loop is a good choice when the number of repetitions is 
+                                    known, or can be supplied by the user.</b></font></p>
+                              </li>
+                           </ul></td>
+                     </tr>
+                  </table></td>
+            </tr>
+         </table>
+      </div>
+      <p>A loop is demonstrated with <tt>while</tt> statements in the Loop Demo window using the following code from the loopDemoMethod. The user selects the amount of change they should receive between 1 and 99 cents, and clicks the 'Submit' button.</p>
+      <br>
+      <!-- HTML generated using hilite.me -->
+      <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+         <pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">static</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">loopDemoMethod</span><span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span> userEntry<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+
+        <span style="color: #008800; font-weight: bold">while</span><span style="color: #333333">(</span>userEntry <span style="color: #333333">&gt;</span> <span style="color: #0000DD; font-weight: bold">49</span><span style="color: #333333">)</span> <span style="color: #333333">{</span>
+            userEntry <span style="color: #333333">-=</span> <span style="color: #0000DD; font-weight: bold">50</span><span style="color: #333333">;</span>
+            <span style="color: #333333">++</span>halfDollars<span style="color: #333333">;</span>
+        <span style="color: #333333">}</span>
+
+        <span style="color: #008800; font-weight: bold">while</span><span style="color: #333333">(</span>userEntry <span style="color: #333333">&gt;</span> <span style="color: #0000DD; font-weight: bold">24</span><span style="color: #333333">)</span> <span style="color: #333333">{</span>
+            userEntry <span style="color: #333333">-=</span> <span style="color: #0000DD; font-weight: bold">25</span><span style="color: #333333">;</span>
+            <span style="color: #333333">++</span>quarters<span style="color: #333333">;</span>
+        <span style="color: #333333">}</span>
+
+        <span style="color: #008800; font-weight: bold">while</span><span style="color: #333333">(</span>userEntry <span style="color: #333333">&gt;</span> <span style="color: #0000DD; font-weight: bold">9</span><span style="color: #333333">)</span> <span style="color: #333333">{</span>
+            userEntry <span style="color: #333333">-=</span> <span style="color: #0000DD; font-weight: bold">10</span><span style="color: #333333">;</span>
+            <span style="color: #333333">++</span>dimes<span style="color: #333333">;</span>
+        <span style="color: #333333">}</span>
+
+        <span style="color: #008800; font-weight: bold">while</span><span style="color: #333333">(</span>userEntry <span style="color: #333333">&gt;</span> <span style="color: #0000DD; font-weight: bold">4</span><span style="color: #333333">)</span> <span style="color: #333333">{</span>
+            userEntry <span style="color: #333333">-=</span> <span style="color: #0000DD; font-weight: bold">5</span><span style="color: #333333">;</span>
+            <span style="color: #333333">++</span>nickels<span style="color: #333333">;</span>
+        <span style="color: #333333">}</span>
+        CodeDemoGUI<span style="color: #333333">.</span><span style="color: #0000CC">showResult</span><span style="color: #333333">.</span><span style="color: #0000CC">setText</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;Your change is &quot;</span> <span style="color: #333333">+</span>
+                halfDollars <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot; half dollar(s), &quot;</span> <span style="color: #333333">+</span> quarters <span style="color: #333333">+</span>
+                <span style="background-color: #fff0f0">&quot; quarter(s), &quot;</span> <span style="color: #333333">+</span> dimes <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot; dime(s), &quot;</span> <span style="color: #333333">+</span> nickels <span style="color: #333333">+</span>
+                <span style="background-color: #fff0f0">&quot; nickel(s), and &quot;</span> <span style="color: #333333">+</span> userEntry <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot; penn(y/ies)!&quot;</span><span style="color: #333333">);</span>
+
+        <span style="color: #888888">// Reset global variables</span>
+        halfDollars <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">;</span>
+        quarters <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">;</span>
+        dimes <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">;</span>
+        nickels <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">;</span>
+    <span style="color: #333333">}</span>
+</pre>
+      </div>
+      <br>
+      <h3>What's the code doing?</h3>
+      <p>The loopDemoMethod is called from the CodeDemoGUI and passed an int argument named <i>userEntry</i>, which is a value taken from the user via the spinner. 
+         The code then processes the information through a series of while loops, incrementing the appropriate coins, and decrementing <i>userEntry</i> by the value
+         of the corresponding coin. Then a message is output to the text area in the Loop Demo window declaring the correct change and coin count.</p>
+   </body>
+</html>

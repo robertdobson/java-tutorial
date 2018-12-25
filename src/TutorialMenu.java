@@ -80,11 +80,11 @@ public class TutorialMenu extends JPanel implements ActionListener{
         genericsButton.addActionListener(this);
 
         // Set up the picture label.
-        picture = new JLabel(createImageIcon("images/Programmer.jpg"));
+        picture = new JLabel(createImageIcon("resources/images/Programmer.jpg"));
 
         // Setting size of the picture displayed on TutorialMenu
         picture.setPreferredSize(new Dimension(360, 250));
-        picture.setIcon(createImageIcon("images/Programmer.jpg"));
+        picture.setIcon(createImageIcon("resources/images/Programmer.jpg"));
 
 
         // Put the radio buttons in a column in a panel.
@@ -116,41 +116,41 @@ public class TutorialMenu extends JPanel implements ActionListener{
     /** Listens to the'Explore' button and checks which radio button is selected. */
         public void actionPerformed(ActionEvent e) {
             if (buttonString.equals(e.getActionCommand()) && introductionButton.isSelected()) {
-                DocumentViewer.runDocumentViewer("Introduction.html", "Introduction");
+                DocumentViewer.runDocumentViewer("resources/Introduction.html", "Introduction");
                 Toolkit.getDefaultToolkit().beep();
             }
             else if (buttonString.equals(e.getActionCommand()) && branchingButton.isSelected()) {
-                DocumentViewer.runDocumentViewer("Branching.html", "Branching");
+                DocumentViewer.runDocumentViewer("resources/Branching.html", "Branching");
                 CodeDemoGUI.runCodeDemo("Branching Demo",
                         "Please select your age to purchase a movie ticket:", 0, 0, 120, 1);
                 Toolkit.getDefaultToolkit().beep();
             }
             else if (buttonString.equals(e.getActionCommand()) && loopsButton.isSelected()) {
-                DocumentViewer.runDocumentViewer("Loops.html", "Loops");
+                DocumentViewer.runDocumentViewer("resources/Loops.html", "Loops");
                 CodeDemoGUI.runCodeDemo("Loop Demo","Enter your change, between 1 and 99 cents:",
                         1, 1, 99, 1);
                 Toolkit.getDefaultToolkit().beep();
             }
             else if (buttonString.equals(e.getActionCommand()) && arraysButton.isSelected()) {
-                DocumentViewer.runDocumentViewer("Arrays.html", "Arrays");
+                DocumentViewer.runDocumentViewer("resources/Arrays.html", "Arrays");
                 CodeDemoGUI.runCodeDemo("Array Demo", "Enter an array length between 1 and 10:",
                         1, 1, 10, 1);
                 Toolkit.getDefaultToolkit().beep();
             }
             else if (buttonString.equals(e.getActionCommand()) && fileIOButton.isSelected()) {
-                DocumentViewer.runDocumentViewer("FileIO.html", "File Input/Output");
+                DocumentViewer.runDocumentViewer("resources/FileIO.html", "File Input/Output");
                 CodeDemoGUI.runCodeDemo("File Input/Output Demo", "Click button to read and write files",
                         0, 0, 0, 0);
                 Toolkit.getDefaultToolkit().beep();
             }
             else if (buttonString.equals(e.getActionCommand()) && recursionButton.isSelected()) {
-                DocumentViewer.runDocumentViewer("Recursion.html", "Recursion");
+                DocumentViewer.runDocumentViewer("resources/Recursion.html", "Recursion");
                 CodeDemoGUI.runCodeDemo("Recursion Demo", "Choose a number from 0 to 100:",
                         0, 0, 100, 1);
                 Toolkit.getDefaultToolkit().beep();
             }
             else if (buttonString.equals(e.getActionCommand()) && genericsButton.isSelected()) {
-                DocumentViewer.runDocumentViewer("Generics.html", "Generics");
+                DocumentViewer.runDocumentViewer("resources/Generics.html", "Generics");
                 CodeDemoGUI.runCodeDemo("Generics Demo", "Click button to process generic data types",
                         0, 0, 0, 0);
                 Toolkit.getDefaultToolkit().beep();
