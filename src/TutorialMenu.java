@@ -191,10 +191,6 @@ public class TutorialMenu extends JPanel implements ActionListener{
     public static void main(String[] args) {
 
         // Creating and showing this application's GUI.
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                createAndShowGUI();
-            }
-        });
+        javax.swing.SwingUtilities.invokeLater(() -> createAndShowGUI());
     }
 }

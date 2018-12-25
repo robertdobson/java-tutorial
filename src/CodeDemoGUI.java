@@ -119,11 +119,7 @@ public class CodeDemoGUI extends JPanel implements ActionListener, ChangeListene
         showResult.setText("");
 
         // Creating and showing this application's GUI.
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                createAndShowGUI();
-            }
-        });
+        SwingUtilities.invokeLater(() -> createAndShowGUI());
     }
 
 }

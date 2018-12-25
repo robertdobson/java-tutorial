@@ -3,8 +3,6 @@ import java.awt.*;              //for layout managers and more
 import java.awt.event.*;        //for action events
 import java.io.IOException;
 import javax.swing.event.HyperlinkEvent;
-import javax.swing.event.HyperlinkListener;
-
 /**
  *  The DocumentViewer class generates a GUI that serves as a document viewer.
  *
@@ -22,15 +20,12 @@ public class DocumentViewer extends JPanel implements ActionListener {
 
         // Create an editor pane.
         JEditorPane editorPane = createEditorPane();
-        editorPane.addHyperlinkListener(new HyperlinkListener() {
-            @Override
-            public void hyperlinkUpdate(HyperlinkEvent e) {
-                if (HyperlinkEvent.EventType.ACTIVATED.equals(e.getEventType())) {
-                    try {
-                        Desktop.getDesktop().browse((e.getURL().toURI()));
-                    } catch (Exception ex) {
-                        ex.printStackTrace();
-                    }
+        editorPane.addHyperlinkListener(e -> {
+            if (HyperlinkEvent.EventType.ACTIVATED.equals(e.getEventType())) {
+                try {
+                    Desktop.getDesktop().browse((e.getURL().toURI()));
+                } catch (Exception ex) {
+                    ex.printStackTrace();
                 }
             }
         });
@@ -95,12 +90,10 @@ public class DocumentViewer extends JPanel implements ActionListener {
         titledBorder = border;
 
         // Creating and showing this application's GUI.
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                // Turn off metal's use of bold fonts
-                UIManager.put("swing.boldMetal", Boolean.FALSE);
-                createAndShowGUI();
-            }
+        SwingUtilities.invokeLater(() -> {
+            // Turn off metal's use of bold fonts
+            UIManager.put("swing.boldMetal", Boolean.FALSE);
+            createAndShowGUI();
         });
     }
 }
